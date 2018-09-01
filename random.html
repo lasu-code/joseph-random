@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		div div{
+			float: left;
+			margin-right:60px;
+			padding: 15px;
+	
+			
+			 box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
+
+
+		}
+		#heading{
+			font-family: garamond;
+		
+
+		}
+	
+
+
+	</style>
+	<title> GROUPING APP </title>
+</head>
+<body>
+	<h1 id="heading" >MY GROUPING APP</h1>
+	
+	<div id="groups"></div>
+	<script>
+		
+
+ function randomGroup(arrNames=[]){
+		var namesPerGroup=4;
+		var groupNum=1;
+		myGroups=document.getElementById("groups");
+		while(arrNames.length>0){
+			myDiv=document.createElement("div");
+			myGroups.appendChild(myDiv);
+			myPara=document.createElement("p");
+			myDiv.appendChild(myPara);
+			myPara.innerHTML="GROUP--"+ groupNum;
+			myUl=document.createElement("ul");
+			myDiv.appendChild(myUl);
+			var co=0;
+			while(co<namesPerGroup){
+				
+				myName=document.createElement("li");
+				myUl.appendChild(myName);
+				randValue=Math.floor(Math.random()*arrNames.length);
+				myName.innerHTML=arrNames[randValue].toUpperCase();
+				arrNames.splice(randValue,1);
+				if(arrNames.length<1){
+					break;
+				}
+				co++;
+
+			}
+			groupNum++;
+
+
+
+
+
+
+		}
+
+	}
+
+
+		while(true){
+			var noOfNames=prompt(" ENTER NUMBER OF NAMES??");
+			if(!isNaN(noOfNames)){
+				break;
+			}
+			else if(noOfNames=="") {
+				alert("INPUT VALUE");
+
+			}
+			else
+			{
+				alert("NUMBERS ONLY.. INPUT AGAIN");
+			}
+
+		}
+		var cunt=0;
+		var arrNames=[];
+		while (cunt<noOfNames){
+			arrNames[cunt]=prompt("ENTER NAME");
+			if(arrNames[cunt]!=""){
+			cunt++;
+			}
+			else
+			{
+				alert("FIELD CANNOT BE EMPTY.....");
+			}
+		}
+
+
+		
+		
+
+	randomGroup(arrNames);
+
+
+
+		
+	</script>
+
+</body>
+</html>
